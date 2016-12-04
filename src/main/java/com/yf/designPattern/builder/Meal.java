@@ -14,7 +14,7 @@ public class Meal {
 	public BigDecimal  getCost(){
 		BigDecimal  cost=BigDecimal.ZERO;
 		for (Item item : items) {
-			cost.add(item.price());
+			cost=cost.add(item.price());
 		}
 		return cost;
 	}
