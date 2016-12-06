@@ -1,0 +1,25 @@
+package com.yf.designPattern.filter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AndCriteria implements Criteria{
+	
+	private  List<Criteria>  lists;
+	
+	public AndCriteria(Criteria ...criterias) {
+		lists=new ArrayList<Criteria>();
+		for (Criteria persons : criterias) {
+			lists.add(persons);
+		}
+	}
+	
+	
+	public List<Person> metteCriteria(List<Person> persons) {
+		for (Criteria criteria : lists) {
+			persons=criteria.metteCriteria(persons);
+		}
+		return persons;
+	}
+
+}
