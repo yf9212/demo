@@ -16,6 +16,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.AsyncFunction;
+import com.google.common.util.concurrent.CheckedFuture;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
@@ -23,6 +24,7 @@ import com.google.common.util.concurrent.ListenableFutureTask;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.SettableFuture;
+import com.yf.guava.execute.GuavaException;
 
 public class ListenableFutureTest {
 
@@ -123,21 +125,21 @@ public class ListenableFutureTest {
 		}));
 
 		futures.add(service.submit(new Callable<User>() {
-			
+
 			public User call() throws Exception {
 				return new User(2, "李四");
 			}
 		}));
 
 		futures.add(service.submit(new Callable<User>() {
-			
+
 			public User call() throws Exception {
 				return new User(2, "李四");
 			}
 		}));
 
 		futures.add(service.submit(new Callable<User>() {
-			
+
 			public User call() throws Exception {
 				throw new Exception("错误");
 			}
@@ -157,7 +159,6 @@ public class ListenableFutureTest {
 			this.userName = checkNotNull(userName);
 		}
 
-		
 		public User call() throws Exception {
 			Thread.sleep(1000);
 			return new User(new Random().nextInt(10000), userName);
@@ -180,7 +181,7 @@ public class ListenableFutureTest {
 				futures.add(service.submit(new createUserCallable("张三" + i)));
 			}
 			futures.add(service.submit(new Callable<User>() {
-				
+
 				public User call() throws Exception {
 					throw new Exception("错误");
 				}
@@ -192,6 +193,27 @@ public class ListenableFutureTest {
 		} finally {
 			service.shutdown();
 		}
+	}
+
+	/**
+	 * 自定义异常输出
+	 * @throws GuavaException
+	 */
+	public void checkFuture() throws GuavaException {
+		CheckedFuture<User, GuavaException> checkedFuture = Futures.makeChecked(service.submit(new Callable<User>() {
+
+			public User call() throws Exception {
+				return null;
+			}
+		}), new Function<Exception, GuavaException>() {
+
+			public GuavaException apply(Exception input) {
+				return new GuavaException(input);
+			}
+
+		});
+		checkedFuture.checkedGet();
+
 	}
 
 }
