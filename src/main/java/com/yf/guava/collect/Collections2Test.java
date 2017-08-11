@@ -12,7 +12,7 @@ import com.google.common.collect.Lists;
 public class Collections2Test {
 	
 	@Test
-	public void test() {
+	public void filter() {
 		List<Boolean>  list=Lists.newArrayList(true,false,true,false,true);
 		System.out.println(list);
 		Collection<Boolean> coll=Collections2.filter(list, new  Predicate<Boolean>() {
@@ -23,4 +23,5 @@ public class Collections2Test {
 		System.out.println(coll);
 		System.out.println(list);
 	}
+	
 }
