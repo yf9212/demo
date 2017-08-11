@@ -1,4 +1,4 @@
-package com.yf.guava;
+package com.yf.guava.cache;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
@@ -10,6 +10,12 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
 public class CacheTest {
+	
+	/**
+	 * expireAfterAccess  在指定时间没有读写的情况下失效，一旦发生读写，失效时间重置
+	 * expireAfterWrite  在写入指定时间之后失效
+	 * @throws ExecutionException
+	 */
 	
 	@Test
 	public void useCache() throws ExecutionException {

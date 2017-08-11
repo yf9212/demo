@@ -1,4 +1,4 @@
-package com.yf.guava;
+package com.yf.guava.collect;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Ordering;
+import com.yf.guava.User;
 
 public class OrderingTest {
 

@@ -1,4 +1,4 @@
-package com.yf.guava;
+package com.yf.guava.collect;
 
 import java.util.Map;
 

@@ -1,5 +1,7 @@
 package com.yf.guava;
 
+import static com.google.common.base.Objects.equal;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,6 +15,7 @@ public class ObjectsTest {
 	@Test
 	public void equals() {
 		System.out.println(Objects.equal(0.5f, new Float("0.5")));
+		System.out.println(equal(new Short("5"), 5));
 	}
 
 	private Date parse(String date, String format) {
