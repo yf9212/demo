@@ -1,4 +1,4 @@
-package com.yf.designPattern.compound;
+package com.yf.designPattern.compound.composite;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
@@ -6,18 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.google.common.collect.Lists;
-import com.yf.designPattern.compound.observer.Observable;
+import com.yf.designPattern.compound.Quackable;
 import com.yf.designPattern.compound.observer.Observer;
 
 public class Flock implements Quackable {
 
-	private Observable observable;
-
 	private List<Quackable> quackables = Lists.newArrayList();
-
-	public Flock() {
-		this.observable = new Observable(this);
-	}
 
 	public void add(Quackable quackable) {
 		quackables.add(checkNotNull(quackable));
@@ -31,11 +25,13 @@ public class Flock implements Quackable {
 	}
 
 	public void registerObserver(Observer observer) {
-		observable.registerObserver(observer);
+		Iterator<Quackable> iterator=quackables.iterator();
+		while(iterator.hasNext()){
+			iterator.next().registerObserver(observer);
+		}
 	}
 
 	public void notifyObserver() {
-		observable.notifyObserver();
 	}
 
 }

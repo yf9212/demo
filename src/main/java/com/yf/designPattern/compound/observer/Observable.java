@@ -11,10 +11,10 @@ public class Observable implements 	QuackObservable{
 	
 	private List<Observer> observers=Lists.newArrayList(); 
 	
-	private QuackObservable duck;
+	private QuackObservable observable;
 	
 	public Observable(QuackObservable observable) {
-		this.duck=checkNotNull(observable);
+		this.observable=checkNotNull(observable);
 	}
 
 	public void registerObserver(Observer observer) {
@@ -25,7 +25,7 @@ public class Observable implements 	QuackObservable{
 		Iterator<Observer> iterator= observers.iterator();
 		while(iterator.hasNext()){
 			Observer observer=	iterator.next();
-			observer.update(duck);
+			observer.update(observable);
 		}
 	}
 

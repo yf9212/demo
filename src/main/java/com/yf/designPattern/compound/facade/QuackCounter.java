@@ -1,20 +1,17 @@
-package com.yf.designPattern.compound;
+package com.yf.designPattern.compound.facade;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import com.yf.designPattern.compound.observer.Observable;
+import com.yf.designPattern.compound.Quackable;
 import com.yf.designPattern.compound.observer.Observer;
 
 public class QuackCounter implements Quackable {
-
-	private Observable observable;
 
 	private Quackable duck;
 	private static int numberOfQuacks = 0;
 
 	public QuackCounter(Quackable quackable) {
 		this.duck = checkNotNull(quackable);
-		this.observable = new Observable(this);
 	}
 
 	public void quack() {
@@ -27,11 +24,11 @@ public class QuackCounter implements Quackable {
 	}
 
 	public void registerObserver(Observer observer) {
-		observable.registerObserver(observer);
+		duck.registerObserver(observer);
 	}
 
 	public void notifyObserver() {
-		observable.notifyObserver();
+		duck.notifyObserver();
 	}
 
 }

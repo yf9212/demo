@@ -1,11 +1,11 @@
 package com.yf.designPattern.compound.factory;
 
-import com.yf.designPattern.compound.QuackCounter;
 import com.yf.designPattern.compound.Quackable;
 import com.yf.designPattern.compound.entrties.DuckCall;
 import com.yf.designPattern.compound.entrties.MallarDuck;
 import com.yf.designPattern.compound.entrties.RedheadDuck;
 import com.yf.designPattern.compound.entrties.RubberDuck;
+import com.yf.designPattern.compound.facade.QuackCounter;
 
 public class CountingDuckFactory extends AbstractDuckFactory {
 

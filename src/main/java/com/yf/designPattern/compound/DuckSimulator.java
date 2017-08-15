@@ -1,6 +1,7 @@
 package com.yf.designPattern.compound;
 
 import com.yf.designPattern.compound.adapter.GooseAdapter;
+import com.yf.designPattern.compound.composite.Flock;
 import com.yf.designPattern.compound.entrties.Goose;
 import com.yf.designPattern.compound.factory.AbstractDuckFactory;
 import com.yf.designPattern.compound.factory.CountingDuckFactory;
@@ -35,6 +36,9 @@ public class DuckSimulator {
 		flockOfDucks.add(flockOfMallards);
 		
 		System.out.println("Duck  simulator:Whole  Flock  Simulation");
+		
+		Quackologist quackologist=new Quackologist();
+		flockOfDucks.registerObserver(quackologist);
 		simulate(flockOfDucks);
 		
 		System.out.println("Duck  simulator:Mallard  Flock  Simulation");
