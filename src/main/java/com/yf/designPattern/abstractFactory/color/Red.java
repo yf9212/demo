@@ -1,4 +1,4 @@
-package com.yf.designPattern.abstractFactory;
+package com.yf.designPattern.abstractFactory.color;
 
 public class Red  implements Color{
 	public void fill() {

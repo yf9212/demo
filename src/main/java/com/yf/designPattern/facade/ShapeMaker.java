@@ -9,7 +9,6 @@ public class ShapeMaker {
 		circle = new Circle();
 		ractangle = new Rectangle();
 		square = new Square();
-
 	}
 
 	public void drawCircle() {

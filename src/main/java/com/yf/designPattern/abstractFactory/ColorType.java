@@ -3,7 +3,8 @@ package com.yf.designPattern.abstractFactory;
 public enum ColorType {
 	
 	red(1,"红"),
-	blue(2,"蓝"),green(3,"绿");
+	blue(2,"蓝"),
+	green(3,"绿");
 	
 	private Integer type;
 	private String name;

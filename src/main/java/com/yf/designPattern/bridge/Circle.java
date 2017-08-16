@@ -13,7 +13,7 @@ public class Circle extends Shape {
 
 	@Override
 	public void drwa() {
-		drawApi.drawCircle(radius, x, y);
+		getDrawApi().drawCircle(radius, x, y);
 	}
 
 }

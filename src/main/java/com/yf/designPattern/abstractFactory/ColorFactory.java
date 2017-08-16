@@ -1,5 +1,10 @@
 package com.yf.designPattern.abstractFactory;
 
+import com.yf.designPattern.abstractFactory.color.Blue;
+import com.yf.designPattern.abstractFactory.color.Color;
+import com.yf.designPattern.abstractFactory.color.Green;
+import com.yf.designPattern.abstractFactory.color.Red;
+
 public class ColorFactory {
 	
 	public static Color getColor(ColorType colorType) {
